@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 export default function AutoType({ words = [], speed = 80, pause = 1500, className = "" }) {
