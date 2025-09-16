@@ -1,28 +1,40 @@
 export default function Pricing() {
   return (
-    <div className="min-h-screen flex flex-col items-center p-6">
-      <h1 className="text-4xl font-bold mb-6">Pricing Plans</h1>
+    <div className="min-h-screen py-20">
+      <div className="container">
+        <h1 className="text-4xl font-extrabold neon mb-6">Pricing</h1>
+        <p className="text-slate-300 mb-8">Flexible plans for individuals and teams.</p>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="border p-6 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-semibold mb-2">Free</h2>
-          <p>1 free scan, or 5 free scans with account.</p>
-        </div>
-        <div className="border p-6 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-semibold mb-2">$5/month</h2>
-          <p>25 scans per day.</p>
-        </div>
-        <div className="border p-6 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-semibold mb-2">$8/month</h2>
-          <p>50 scans per day.</p>
-        </div>
-        <div className="border p-6 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-semibold mb-2">$16/month</h2>
-          <p>Unlimited scans.</p>
-        </div>
-        <div className="border p-6 rounded-lg shadow-md text-center bg-yellow-50">
-          <h2 className="text-2xl font-semibold mb-2">$25 per URL</h2>
-          <p>Advanced scan with detailed vulnerability analysis.</p>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
+          <div className="frost p-6 rounded-xl text-center">
+            <h3 className="text-xl font-semibold">Free</h3>
+            <p className="text-slate-400">1 anon scan / day — 5 with registration</p>
+            <div className="mt-4 text-3xl font-bold">$0</div>
+          </div>
+
+          <div className="frost p-6 rounded-xl text-center">
+            <h3 className="text-xl font-semibold">Basic</h3>
+            <p className="text-slate-400">25 scans / day</p>
+            <div className="mt-4 text-3xl font-bold">$5 / mo</div>
+          </div>
+
+          <div className="frost p-6 rounded-xl text-center">
+            <h3 className="text-xl font-semibold">Pro</h3>
+            <p className="text-slate-400">50 scans / day</p>
+            <div className="mt-4 text-3xl font-bold">$8 / mo</div>
+          </div>
+
+          <div className="frost p-6 rounded-xl text-center md:col-span-3">
+            <h3 className="text-xl font-semibold">Unlimited</h3>
+            <p className="text-slate-400">Unlimited passive scans</p>
+            <div className="mt-4 text-3xl font-bold">$16 / mo</div>
+          </div>
+
+          <div className="frost p-6 rounded-xl text-center md:col-span-3 bg-yellow-900/10">
+            <h3 className="text-xl font-semibold">Advanced Scan (one-time)</h3>
+            <p className="text-slate-400">Intrusive, verification & remediation steps</p>
+            <div className="mt-4 text-3xl font-bold">$25 / URL</div>
+          </div>
         </div>
       </div>
     </div>

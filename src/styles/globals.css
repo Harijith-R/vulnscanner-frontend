@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom theme variables */
+:root {
+  --bg: #07070a;
+  --panel: rgba(255,255,255,0.03);
+  --neon: #00e6ff; /* electric cyan */
+  --accent: #6b21a8; /* subtle magenta */
+  --muted: #94a3b8;
+}
+
+/* Base body */
+body {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,230,255,0.035), transparent 8%),
+              radial-gradient(1000px 500px at 90% 85%, rgba(107,33,168,0.03), transparent 10%),
+              var(--bg);
+}
+
+/* Neon-glow utility */
+.neon {
+  text-shadow:
+    0 0 6px rgba(0,230,255,0.12),
+    0 0 16px rgba(0,230,255,0.06);
+}
+
+/* Glowing button */
+.btn-neon {
+  background: linear-gradient(90deg, rgba(0,230,255,0.08), rgba(107,33,168,0.06));
+  border: 1px solid rgba(0,230,255,0.12);
+  box-shadow: 0 6px 20px rgba(0,230,255,0.04), inset 0 -2px 6px rgba(255,255,255,0.02);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(0,230,255,0.09), inset 0 -2px 6px rgba(255,255,255,0.03);
+}
+
+/* Frosted card + glow */
+.frost {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 40px rgba(2,6,23,0.5);
+}
+
+/* Subtle grid / circuitry overlay */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(0,230,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,33,168,0.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  z-index: 0;
+}
+
+/* Particle canvas wrapper */
+.particle-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Auto-type underline style */
+.type-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2rem;
+  background: var(--neon);
+  margin-left: 6px;
+  animation: blink 900ms steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0 } }
+
+/* testimonial float animation */
+.floaty {
+  transform: translateY(0);
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* small layout helpers */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  z-index: 10;
+}

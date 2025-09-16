@@ -1,56 +1,33 @@
+import NavBar from "../components/NavBar";
+import ParticleCanvas from "../components/ParticleCanvas";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import Testimonials from "../components/Testimonials";
+import Contact from "../components/Contact";
+
 export default function Home() {
+  function onScan(domain) {
+    // Hook this to your backend scan call.
+    if (!domain) return alert("Please enter a domain to scan.");
+    alert(`Triggering free passive scan for: ${domain}\n\n(This is the UI – wire backend / API call to /api/scan/free)`);
+  }
+
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center p-4 shadow-md bg-white">
-        {/* Left: Logo */}
-        <div className="text-xl font-bold">SecurityScanner</div>
+    <>
+      <div className="grid-overlay" />
+      <ParticleCanvas />
+      <NavBar />
 
-        {/* Center: Menu */}
-        <div className="space-x-6">
-          <a href="/pricing" className="hover:text-blue-600">Pricing</a>
-          <a href="/contact" className="hover:text-blue-600">Contact Us</a>
-          <a href="/blog" className="hover:text-blue-600">Blog</a>
-        </div>
-
-        {/* Right: Login */}
-        <div>
-          <a href="/login" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-            Login
-          </a>
-        </div>
-      </nav>
-
-      {/* Main Section */}
-      <main className="flex-grow flex flex-col justify-center items-center text-center p-6">
-        {/* Domain Scanner */}
-        <h1 className="text-4xl font-bold mb-6">Free Website Security Scan</h1>
-        <input
-          type="text"
-          placeholder="Enter your domain (example.com)"
-          className="border p-3 w-80 rounded-lg mb-4"
-        />
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
-          Start Free Scan
-        </button>
-
-        {/* Security Rating Placeholder */}
-        <div className="mt-8 p-6 border rounded-lg shadow-md bg-gray-50 w-96">
-          <h2 className="text-xl font-semibold mb-2">Security Rating</h2>
-          <p className="text-gray-600">Your scan results will appear here...</p>
-        </div>
-
-        {/* Advanced Scan Promo */}
-        <div className="mt-10 p-6 border rounded-lg shadow-lg bg-yellow-50 w-96">
-          <h2 className="text-xl font-bold mb-2 text-yellow-700">Upgrade to Advanced Scan 🚀</h2>
-          <p className="text-gray-700">
-            Get deep vulnerability analysis for just <strong>$25 per URL</strong>.
-          </p>
-          <button className="mt-4 bg-yellow-600 text-white px-6 py-2 rounded-lg hover:bg-yellow-700">
-            Try Advanced Scan
-          </button>
-        </div>
+      <main className="relative z-10">
+        <Hero onScan={onScan} />
+        <Features />
+        <Testimonials />
+        <Contact />
       </main>
-    </div>
+
+      <footer className="py-10 text-center text-slate-500">
+        © {new Date().getFullYear()} The Trust Scan — Only scan targets you own or have permission to test.
+      </footer>
+    </>
   );
 }
